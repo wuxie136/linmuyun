@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>林木云</title>
+  
+  <subtitle>分享最优质的技术与经验</subtitle>
+  <link href="https://blog.alm5.cn/atom.xml" rel="self"/>
+  
+  <link href="https://blog.alm5.cn/"/>
+  <updated>2022-12-17T06:23:32.906Z</updated>
+  <id>https://blog.alm5.cn/</id>
+  
+  <author>
+    <name>林木</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安卓手机利用Termux安装hexo</title>
+    <link href="https://blog.alm5.cn/posts/85e7474c.html"/>
+    <id>https://blog.alm5.cn/posts/85e7474c.html</id>
+    <published>2022-06-15T17:52:12.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;最近闲得无事，就想实践一下使用&lt;strong&gt;Termux&lt;/strong&gt;更新&lt;strong&gt;hexo&lt;/strong&gt;。&lt;br&gt;不过，重点其实是熟悉一下linux的操作，因为自己已经通过&lt;strong&gt;deepin&lt;/strong&gt;和&lt;stro</summary>
+        
+      
+    
+    
+    
+    <category term="hexo" scheme="https://blog.alm5.cn/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="https://blog.alm5.cn/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo命令备忘录。</title>
+    <link href="https://blog.alm5.cn/posts/570ae4c8.html"/>
+    <id>https://blog.alm5.cn/posts/570ae4c8.html</id>
+    <published>2022-06-10T22:30:58.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;hexo&quot;&gt;&lt;a href=&quot;#hexo&quot; class=&quot;headerlink&quot; title=&quot;hexo&quot;&gt;&lt;/a&gt;hexo&lt;/h1&gt;&lt;p&gt;hexo安装&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>解决一次Jsdelivr导致的样式丢失。</title>
+    <link href="https://blog.alm5.cn/posts/8c48d2f1.html"/>
+    <id>https://blog.alm5.cn/posts/8c48d2f1.html</id>
+    <published>2022-05-22T17:52:12.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Jsdelivr" scheme="https://blog.alm5.cn/categories/Jsdelivr/"/>
+    
+    
+    <category term="Jsdelivr" scheme="https://blog.alm5.cn/tags/Jsdelivr/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux安装dd系统Windows</title>
+    <link href="https://blog.alm5.cn/posts/54183ff.html"/>
+    <id>https://blog.alm5.cn/posts/54183ff.html</id>
+    <published>2022-05-17T17:52:12.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;最近重新打开了半年没有碰过的MC，又沉迷在了MC多人服务器里，玩的是1.17.1版本，奈何服务器有个挂机奖励系统，在线时间越长奖励越丰富，正好有台闲置的美国机子，配置是5G2核，挂个MC，不玩只挂机应该够用，因为机子是美国机，服务商那边没有给提供W</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://blog.alm5.cn/categories/Windows/"/>
+    
+    
+    <category term="Windows" scheme="https://blog.alm5.cn/tags/Windows/"/>
+    
+    <category term="Linux" scheme="https://blog.alm5.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为什么网站打开速度慢</title>
+    <link href="https://blog.alm5.cn/posts/cb84c60b.html"/>
+    <id>https://blog.alm5.cn/posts/cb84c60b.html</id>
+    <published>2022-05-15T14:52:10.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;在进行站点优化时，很多站长会发现我们的网站有时运行速度很快，有时运行速度很慢，严重影响了用户体验。因此，有必要理解为什么网站变得很慢。如今，可以帮助你了解为什么我们的网站会慢下来。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="优化" scheme="https://blog.alm5.cn/tags/%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单说明Windows10和Windows11有什么区别</title>
+    <link href="https://blog.alm5.cn/posts/undefined.html"/>
+    <id>https://blog.alm5.cn/posts/undefined.html</id>
+    <published>2021-07-03T09:56:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Windows11具有Windows10的全部功能和安全性，同时具有经重新设计而焕然一新的外观。它还自带一些新的工具、声音和应用。所有细节面面俱到。颜值、功能与安全性集于一体，带来全新的电脑体验。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;同</summary>
+        
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>要不要免费帮助别人</title>
+    <link href="https://blog.alm5.cn/posts/7780c966.html"/>
+    <id>https://blog.alm5.cn/posts/7780c966.html</id>
+    <published>2021-07-03T09:49:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://jsd.15xd.cn/gh/linmu136/tulin/45004b33edfd0b32607e9370de88d0a9.png&quot; alt=&quot;请输入图片描述&quot;&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>几种使用谷歌搜索的方法</title>
+    <link href="https://blog.alm5.cn/posts/81484837.html"/>
+    <id>https://blog.alm5.cn/posts/81484837.html</id>
+    <published>2021-02-01T07:06:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;前言:目前因为谷歌被墙，所以在国内是无法直接访问谷歌搜索官网的，但是有的时候我们又不得不使用谷歌，这里分享几个可以正常使用谷歌搜索的方法。对您有帮助的话就来看看吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;使用谷歌镜像站，第一步，打开</summary>
+        
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+    <category term="谷歌" scheme="https://blog.alm5.cn/tags/%E8%B0%B7%E6%AD%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在线网页截图工具</title>
+    <link href="https://blog.alm5.cn/posts/2695d39.html"/>
+    <id>https://blog.alm5.cn/posts/2695d39.html</id>
+    <published>2021-02-01T06:59:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一般情况，手机截图或者电脑截图总会有一些边框，然后还需要自己修剪，这里推荐一个网页在线截图工具，可以一键截图，并且支持api（有助于开发者使用）&lt;/p&gt;
+&lt;h2 id=&quot;优点&quot;&gt;&lt;a href=&quot;#优点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>教你在Win10下怎么查看WIFI密码</title>
+    <link href="https://blog.alm5.cn/posts/71f1b8cc.html"/>
+    <id>https://blog.alm5.cn/posts/71f1b8cc.html</id>
+    <published>2021-01-30T03:28:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在Win10下怎么查看WIFI密码呢，相信很多用户很早就连接了WIFI，久了之后就把WIFI密码给忘记了，其实大家不要急，在Win10下查看WIFI密码还是比较简单的，下面小编提供了两种方法，大家觉的哪个更方便就用哪个方法。&lt;/p&gt;
+&lt;/block</summary>
+        
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="Windows" scheme="https://blog.alm5.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>讲解网站中robots.txt文件到底是干什么的？</title>
+    <link href="https://blog.alm5.cn/posts/2330b865.html"/>
+    <id>https://blog.alm5.cn/posts/2330b865.html</id>
+    <published>2021-01-30T03:15:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1、引导搜索引擎蜘蛛抓取指定栏目或内容；&quot;&gt;&lt;a href=&quot;#1、引导搜索引擎蜘蛛抓取指定栏目或内容；&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+    <category term="seo优化" scheme="https://blog.alm5.cn/tags/seo%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用smtp发送邮件时如何隐藏服务器ip</title>
+    <link href="https://blog.alm5.cn/posts/86119838.html"/>
+    <id>https://blog.alm5.cn/posts/86119838.html</id>
+    <published>2020-12-12T22:32:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;使用smtp发信时默认会在邮件的头部信息中显示真实的ip地址，将ip地址暴露在网络中是很危险的。所以我们在使用smtp发信时需要隐藏掉服务器的ip。下面简单记录下比较省时省力的几种方案&lt;/p&gt;
+&lt;h2 id=&quot;1，使用阿里云企业邮箱发送邮件（推荐）&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="网站优化" scheme="https://blog.alm5.cn/tags/%E7%BD%91%E7%AB%99%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>免费主机，真的是免费吗？</title>
+    <link href="https://blog.alm5.cn/posts/fc70373e.html"/>
+    <id>https://blog.alm5.cn/posts/fc70373e.html</id>
+    <published>2020-08-04T06:47:15.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;免费领一年虚拟主机？真的有这么好的事情吗？今天就来跟大家分享下如何才能够碰到这么好的事情。&lt;/p&gt;
+&lt;p&gt;小伙伴，首先咱们冷静下，好好想想，如果商家免费送虚拟主机用，而且时限很长，那他怎么赚钱呢？&lt;/p&gt;
+&lt;p&gt;  </summary>
+        
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>站内seo优化需要注意的7个小细节</title>
+    <link href="https://blog.alm5.cn/posts/862aa78e.html"/>
+    <id>https://blog.alm5.cn/posts/862aa78e.html</id>
+    <published>2020-07-24T18:22:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装文章列表插件并在首页放上列表链接，网上这样的插件不少，每更新一篇文章的时候，也会把文章的标题和链接加进去，唯一不好的是，这个插件在我们写一篇文章都要文件重建才能把最新的文章加进去，这个插件也相当于网站地图的功能，而且对用户体验也是友好的，浏览者找到自己</summary>
+        
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="seo优化" scheme="https://blog.alm5.cn/tags/seo%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SEO优化与静态URL的方法</title>
+    <link href="https://blog.alm5.cn/posts/a0c45b4c.html"/>
+    <id>https://blog.alm5.cn/posts/a0c45b4c.html</id>
+    <published>2020-07-24T18:04:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;法说明开始：&lt;br&gt;网站的URL被分为动态和静态两种，动态的URL也分为三种，第一种是ASP，第二种是PHP，第三种是JSP。静态的URL却只有一种，那就是.html。所以，我们经常通过网址来查看该网站是动态还是静态的。&lt;/p&gt;
+&lt;p&gt;针对SEO优化来说，搜索引擎会经常对网</summary>
+        
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>电脑小白验机</title>
+    <link href="https://blog.alm5.cn/posts/161d6aca.html"/>
+    <id>https://blog.alm5.cn/posts/161d6aca.html</id>
+    <published>2020-06-15T15:28:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一般的验机步骤如下:&lt;/p&gt;
+&lt;p&gt;一、拿到快递之后&lt;/p&gt;
+&lt;p&gt;很多人直接拿上快递，看都不看就直接回家了。其实对于活动日和折扣日的电子产品，我们都需要尽可能的检查快递外包装。如果快递包装已经破损了,或者明显已经挤压过了，那么抱歉，直接拒收。&lt;/p&gt;
+&lt;p&gt;因为即使是京东</summary>
+        
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始的电脑系统重装</title>
+    <link href="https://blog.alm5.cn/posts/5e79d06.html"/>
+    <id>https://blog.alm5.cn/posts/5e79d06.html</id>
+    <published>2020-06-15T15:24:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;重装前的准备&lt;/p&gt;
+&lt;p&gt;下载系统镜像&lt;br&gt;校验系统镜像MD5是否和官网的匹配&lt;br&gt;下载驱动安装工具万能网卡版（可选）&lt;br&gt;1、下载镜像就不用说了吧…..要是不会的话那我就建议你去电脑点叫人帮忙重装了。&lt;/p&gt;
+&lt;p&gt;在这里推荐一下几款系统吧 (无锁定 无广告</summary>
+        
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>联通解除流量封顶服务1年</title>
+    <link href="https://blog.alm5.cn/posts/87cc57e0.html"/>
+    <id>https://blog.alm5.cn/posts/87cc57e0.html</id>
+    <published>2020-05-19T08:32:04.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://icon.qiantucdn.com/20200520/062f506006433a98d7de4d47a65b472e2&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="七杂八杂" scheme="https://blog.alm5.cn/categories/%E4%B8%83%E6%9D%82%E5%85%AB%E6%9D%82/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>腾讯管家域名报毒红名申诉地址集合</title>
+    <link href="https://blog.alm5.cn/posts/56bf6fe7.html"/>
+    <id>https://blog.alm5.cn/posts/56bf6fe7.html</id>
+    <published>2020-05-14T16:14:50.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/05/15/YrpdzV.png&quot; alt=&quot;请输入图片描述&quot;&gt;&lt;br&gt;安全联盟：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>宝塔linux面板命令大全</title>
+    <link href="https://blog.alm5.cn/posts/9206ef5f.html"/>
+    <id>https://blog.alm5.cn/posts/9206ef5f.html</id>
+    <published>2020-05-14T16:09:00.000Z</published>
+    <updated>2022-12-17T06:23:32.906Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;安装宝塔&lt;/p&gt;
+&lt;p&gt;Centos安装脚本&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+</feed>

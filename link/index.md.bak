@@ -1,0 +1,30 @@
+---
+title: 友情链接
+type: "link"
+comments: true
+top_img: transparent
+---
+
+
+------
+
+
+# 添加友链示例：
+
+**昵称：**
+**网站链接：**
+**头像地址：**
+**简要概述：**
+
+```yaml
+- name: 林木博客
+  link: https://tianli-blog.club
+  avatar: https://img1.tianli0.top/logo.png
+  descr: 惟其不可能，所以才相信。
+```
+
+
+
+### 注意：您申请友链即代表您同意本站抓取您的网站文章
+
+
