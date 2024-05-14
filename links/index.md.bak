@@ -1,0 +1,31 @@
+---
+title: 友情链接
+type: "link"
+date: 2022-01-07 23:39:33
+comment: true
+top_img: transparent
+---
+
+
+------
+
+
+# 添加友链示例：
+
+**昵称：**
+**网站链接：**
+**头像地址：**
+**简要概述：**
+
+```yaml
+- name: 林木博客
+  link: https://blog.alm5.cn
+  avatar: https://img.15xd.cn/img/1653496063714.png
+  descr: 一个记录生活点滴,分享个人经验,学习心得
+```
+
+
+
+### 注意：您申请友链即代表您同意本站抓取您的网站文章
+
+

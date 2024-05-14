@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>林木云</title>
+  
+  <subtitle>分享最优质的技术与经验</subtitle>
+  <link href="https://blog.alm5.cn/atom.xml" rel="self"/>
+  
+  <link href="https://blog.alm5.cn/"/>
+  <updated>2024-05-14T06:23:24.045Z</updated>
+  <id>https://blog.alm5.cn/</id>
+  
+  <author>
+    <name>林木</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安卓手机利用Termux安装hexo</title>
+    <link href="https://blog.alm5.cn/posts/85e7474c.html"/>
+    <id>https://blog.alm5.cn/posts/85e7474c.html</id>
+    <published>2022-06-15T17:52:12.000Z</published>
+    <updated>2024-05-14T06:23:24.045Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近闲得无事，就想实践一下使用<strong>Termux</strong>更新<strong>hexo</strong>。<br>不过，重点其实是熟悉一下linux的操作，因为自己已经通过<strong>deepin</strong>和<strong>chrome os</strong>强制学习了一下<strong>linux</strong>。如果你是<strong>linux</strong>常用人员，以下其实都是废话。</p></blockquote><p><strong>必要步骤</strong>：</p><h2 id="1-安装node-js稳定版和git"><a href="#1-安装node-js稳定版和git" class="headerlink" title="1.安装node.js稳定版和git"></a>1.安装node.js稳定版和git</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install nodejs-lts</span><br></pre></td></tr></table></figure><p>注意<strong>hexo</strong>不支持最新版，会报错<strong>type error</strong>（这其实是<strong>hexo</strong>内部百度站点提交插件的问题）</p><p>另外如果不慎安装错误，就来复习一下pkg <strong>卸载命令</strong>吧。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg unstall nodejs</span><br></pre></td></tr></table></figure><p>apt安装git（pkg也行）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install git</span><br></pre></td></tr></table></figure><h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2   .安装hexo"></a>2   .安装hexo</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure><h2 id="3-安装hexo-d的部署命令"><a href="#3-安装hexo-d的部署命令" class="headerlink" title="3.安装hexo d的部署命令"></a>3.安装hexo d的部署命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>使用<strong>npm安装</strong>，不然无法部署到GitHub，只能在本地浏览。</p><h2 id="4-如果电脑上已经部署了hexo，可以直接将文件夹转移到手机。"><a href="#4-如果电脑上已经部署了hexo，可以直接将文件夹转移到手机。" class="headerlink" title="4 .如果电脑上已经部署了hexo，可以直接将文件夹转移到手机。"></a>4 .如果电脑上已经部署了<strong>hexo</strong>，可以直接将文件夹转移到手机。</h2><p>这里需要讲一下<strong>termux的</strong>工作原理：</p><p><strong>termux</strong>默认设定的<strong>home</strong>目录是安卓的应用数据文件夹，也就是手机无法访问的<strong>root</strong>根目录。</p><p>如果非要访问，可以<strong>root</strong>。</p><p>因此只有通过命令创建<strong>映射</strong>才能访问手机其他位置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-setup-storage</span><br></pre></td></tr></table></figure><p>然后cd到文件管理器根目录</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /storage/emulated/0/</span><br></pre></td></tr></table></figure><p>然后再<strong>cd</strong>到你放文件夹的位置</p><p>如果想完全新建一个，<strong>cd</strong>到想要的目录后<br><strong>使用hexo初始化</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure><h2 id="5-设置git配置"><a href="#5-设置git配置" class="headerlink" title="5.设置git配置"></a>5.设置git配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的github用户的名字&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的github用户的邮箱&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的github账户邮箱&quot;</span><br></pre></td></tr></table></figure><p>连续回车，输入下面的看密钥</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><p>复制此时显示的内容，内容应该是ssh-rsa简介<br>在<br><a class="link"   href="https://github.com/settings/keys" >https://github.com/settings/keys<i class="fas fa-external-link-alt"></i></a> 下 add new ssh key</p><p>title可随意填写，key就是我们拷贝的key<br>用于创建与GitHub的连接。<br><strong>测试</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure><p>成功后大概会出现一下内容：（可能会有部分不一致）</p><p><img                       lazyload                     alt="image"                     data-src="https://img.15xd.cn/uploads/2022/06/ddDhc6ZODkP5d8Iw1FiPQf9FAfkiVvEw.png"                      alt="image-20200708235845417.png"                ></p><h2 id="6-hexo-new，g，d一气呵成"><a href="#6-hexo-new，g，d一气呵成" class="headerlink" title="6.hexo new，g，d一气呵成"></a>6.hexo new，g，d一气呵成</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><p>访问<strong>source</strong>文件夹，使用你想要的文本编辑器编辑文件，然后发布。</p><p>其实整个过程和<strong>linux</strong>上部署<strong>hexo</strong>没有太大差别，因为安卓本质上就是linux虚拟机，以<strong>termux</strong>作为终端使用<strong>linux</strong>很简单。</p><h2 id="然后是题外话："><a href="#然后是题外话：" class="headerlink" title="然后是题外话："></a>然后是题外话：</h2><p><strong>termux</strong>用处很多，安装<strong>deepin</strong>或是<strong>kali</strong>都是很简单的事情，挂下载或是作为文件服务器什么都行，就是一个<strong>linux</strong>电脑。</p><p>虽然下载源在国内实测可以使用，但是可能出现问题，可以下载<strong>vim</strong>修改其他下载源，或者使用代理都是可以的。</p><p>上传时需要输入用户名和密码。可以生成ssh使用<strong>vim</strong>访问然后添加密匙，和电脑差别不大。</p><p><strong>Picgo</strong>已经放出手机端，可以设定图床快速生成链接。</p><p>每次<strong>cd</strong>很麻烦，可以创建软连接。默认的软连接已经包括<strong>share、dcim、downloads、pictures</strong>等等链接，分别指向内部存储的相应文件夹，其中<strong>shared</strong>是指向内部存储的根目录。</p><p>不会真有人用手机更新<strong>hexo</strong>吧？不会吧不会吧，手机屏幕这么小，又没有好用的<strong>markdown</strong>编辑器，这么搞不是给自己找罪受吗？</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;最近闲得无事，就想实践一下使用&lt;strong&gt;Termux&lt;/strong&gt;更新&lt;strong&gt;hexo&lt;/strong&gt;。&lt;br&gt;不过，重点其实是熟悉一下linux的操作，因为自己已经通过&lt;strong&gt;deepin&lt;/strong&gt;和&lt;stro</summary>
+      
+    
+    
+    
+    <category term="hexo" scheme="https://blog.alm5.cn/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="https://blog.alm5.cn/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo命令备忘录。</title>
+    <link href="https://blog.alm5.cn/posts/570ae4c8.html"/>
+    <id>https://blog.alm5.cn/posts/570ae4c8.html</id>
+    <published>2022-06-10T22:30:58.000Z</published>
+    <updated>2024-05-14T06:23:24.045Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p>hexo安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure><p>hexo安装部署</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure><p>安装hexo d的部署命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>hexo一键三连。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><h1 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;wuxie136&quot;</span><br><span class="line"> git config --global user.email &quot;848129247@qq.com&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;848129247@qq.com&quot;</span><br></pre></td></tr></table></figure><p>上传命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit –m &quot;add branch&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure><p>第二种方法</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#x27;注释&#x27;</span><br><span class="line">git branch -m main</span><br><span class="line">git push -f origin main</span><br></pre></td></tr></table></figure><p>连续回车，输入下面的看密钥</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><p>测试是否连接</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><h1 id="上传到仓库"><a href="#上传到仓库" class="headerlink" title="上传到仓库"></a>上传到仓库</h1><p>删除所有仓库链接</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure><p>链接仓库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://@github.com/wuxie136/blog136.git</span><br></pre></td></tr></table></figure><p>忽悠一些不重要的文件。<br>创建.gitignore</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure><h1 id="部署到page"><a href="#部署到page" class="headerlink" title="部署到page"></a>部署到page</h1><p>安装插件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>配置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure><p>一键上传</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#x27;注释&#x27;</span><br><span class="line">git branch -m main</span><br><span class="line">git push -f origin main</span><br></pre></td></tr></table></figure><h1 id="恢复hexo"><a href="#恢复hexo" class="headerlink" title="恢复hexo"></a>恢复hexo</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone 仓库链接</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;hexo&quot;&gt;&lt;a href=&quot;#hexo&quot; class=&quot;headerlink&quot; title=&quot;hexo&quot;&gt;&lt;/a&gt;hexo&lt;/h1&gt;&lt;p&gt;hexo安装&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td </summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>解决一次Jsdelivr导致的样式丢失。</title>
+    <link href="https://blog.alm5.cn/posts/8c48d2f1.html"/>
+    <id>https://blog.alm5.cn/posts/8c48d2f1.html</id>
+    <published>2022-05-22T17:52:12.000Z</published>
+    <updated>2024-05-14T06:23:24.045Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2021年12月20日JsD在中国访问不通，无法正常使用，后续在JsD官方在推文上发布了原因。<br>具体就是JsD失去了在中国的备案，因为JsD在国内使用的是国内的CDN加速服务，所以必须要备案才可以，当然这备案掉了肯定没那么容易再弄回来的，JsD目前已将国内加速切换到了全球CDN加速，速度是大不如从前了，要搬家的话又是一部分大工程，因为有很多人用JsD的功能来做图床用，不过幸好我没有用，不然就很头疼了。</p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p><strong>更换到其他公共CDN</strong><br><strong>Staticfile CDN</strong><br><a class="link"   href="http://www.staticfile.org/" >http://www.staticfile.org/<i class="fas fa-external-link-alt"></i></a></p><blockquote><p>七牛云存储提供，我们的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供<br>CDN加速服务，使之有更好的访问速度和稳定的环境</p></blockquote><p>** 又拍云JS加速库**<br><a class="link"   href="http://jscdn.upai.com/" >http://jscdn.upai.com/<i class="fas fa-external-link-alt"></i></a></p><blockquote><p>又拍云为您托管常用的JavaScript库，您可以在自己的网页上直接通过script标记引用这些资源。这样做不仅可以为您节省流量，还能通过我们的CDN加速，获得更快的访问速度。</p></blockquote><p><strong>BootCDN</strong><br><a class="link"   href="https://www.bootcdn.cn/" >https://www.bootcdn.cn/<i class="fas fa-external-link-alt"></i></a> </p><blockquote><p>Bootstrap 中文网开源项目免费 CDN 加速服务 - 我们致力于为<br>Bootstrap、jQuery、Angular、Vue.js 一样优秀的开源项目提供稳定、快速、免费的 CDN 加速服务。BootCDN<br>是运营时间最长、用户量最大、最早同时支持 HTTPS（SSL）和 HTTP&#x2F;2.0 协议的中立免费 CDN 。</p></blockquote><p><strong>75CDN</strong><br><a class="link"   href="https://cdn.baomitu.com/" >https://cdn.baomitu.com/<i class="fas fa-external-link-alt"></i></a></p><blockquote><p>360 前端静态资源库是由奇舞团支持并维护的开源项目免费 CDN 服务，支持 HTTPS<br>和 HTTP&#x2F;2，囊括上千个前端资源库和 Google 字体库。</p></blockquote><p><strong>烧饼大佬的公益公共库</strong><br><a class="link"   href="https://css.loli.net/" >https://css.loli.net/<i class="fas fa-external-link-alt"></i></a> </p><blockquote><p>常用前端公共库 &amp; 和谐使用 Google 公共库、字体库的方法</p></blockquote><p><strong>字节跳动静态资源公共库</strong><br><a class="link"   href="http://cdn.bytedance.com/" >http://cdn.bytedance.com/<i class="fas fa-external-link-alt"></i></a> </p><blockquote><p>字节跳动静态资源库支持多协议、资源动态拼接、快速检索及资源的动态更新,安全、稳定、实时。</p></blockquote><p><strong>国外</strong><br><strong>CDNJS</strong><br><a class="link"   href="https://cdnjs.com/" >https://cdnjs.com/<i class="fas fa-external-link-alt"></i></a> </p><blockquote><p>The free and open source CDN for web related<br>libraries to speed up your website!</p></blockquote><p><strong>jsDelivr</strong><br><a class="link"   href="https://www.jsdelivr.com/" >https://www.jsdelivr.com/<i class="fas fa-external-link-alt"></i></a> </p><blockquote><p>jsDelivr is a public open-source CDN<br>(Content Delivery Network) where anyone can submit a project to be<br>hosted and delivered by our network.（有中国节点，还支持Github，强烈推荐！！）</p></blockquote><h2 id="更换Jsdelivr的子域名"><a href="#更换Jsdelivr的子域名" class="headerlink" title="更换Jsdelivr的子域名"></a>更换Jsdelivr的子域名</h2><p><strong>jsdelivr主域名jsd.15xd.cn国内已经完全被墙了，虽然可以切换成jsdelivr的子域名，不过这个CDN走的是其他线路，也不能保证以后不会被墙。</strong></p><p><strong>CloudFlare</strong>：test1.jsdelivr.net</p><p><strong>CloudFlare</strong>：testingcf.jsdelivr.net</p><p><strong>Fastly</strong>：fastly.jsdelivr.net</p><p><strong>GCORE</strong>：gcore.jsdelivr.net</p><hr><p><strong>网站目录下，输入以下命令修复</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&quot;s#jsd.15xd.cn#fastly.jsdelivr.net#g&quot;</span> $(grep -rn <span class="string">&#x27;jsd.15xd.cn&#x27;</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | awk -F: <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br></pre></td></tr></table></figure><h2 id="反向代理Jsdelivr"><a href="#反向代理Jsdelivr" class="headerlink" title="反向代理Jsdelivr"></a>反向代理Jsdelivr</h2><p><strong>如果一定要使用jsDelivr的资源的话，可以考虑通过NGINX反代jsd.15xd.cn这一个资源库自用。建议通过海外优化线路落地+国内中转缓存，不过要注意添加防盗链以及尽量隐藏反代路径，以防止被其他人滥用。具体配置这里给一个简单的范例，博主不是很推荐这样做，可靠性上很打折扣。</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">location /gh</span><br><span class="line">&#123;</span><br><span class="line">    proxy_pass https://104.16.86.20;</span><br><span class="line">    proxy_set_header Host jsd.15xd.cn;</span><br><span class="line">    proxy_ssl_server_name on;</span><br><span class="line">    proxy_ssl_name jsd.15xd.cn;</span><br><span class="line">    proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_set_header REMOTE-HOST <span class="variable">$remote_addr</span>;</span><br></pre></td></tr></table></figure><h3 id="宝塔可以直接反向代理"><a href="#宝塔可以直接反向代理" class="headerlink" title="宝塔可以直接反向代理"></a>宝塔可以直接反向代理</h3><p>我使用的是宝塔面板创建的网站</p><p>首先将域名解析到你的服务器</p><p>在宝塔面板中创建一个网站</p><p>配置反向代理。</p><blockquote><p>不要用良心云，套路云反代，有封鸡风险。<br>首先打开需要反代的域名的站点配置文件。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;2021年12月20日JsD在中国访问不通，无法正常使用，后续在JsD官方在推文上发布了原因。&lt;br&gt;具体就是JsD失去了在中国的备案，因为</summary>
+      
+    
+    
+    
+    <category term="Jsdelivr" scheme="https://blog.alm5.cn/categories/Jsdelivr/"/>
+    
+    
+    <category term="Jsdelivr" scheme="https://blog.alm5.cn/tags/Jsdelivr/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为什么网站打开速度慢</title>
+    <link href="https://blog.alm5.cn/posts/cb84c60b.html"/>
+    <id>https://blog.alm5.cn/posts/cb84c60b.html</id>
+    <published>2022-05-15T14:52:10.000Z</published>
+    <updated>2024-05-14T06:23:24.045Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>在进行站点优化时，很多站长会发现我们的网站有时运行速度很快，有时运行速度很慢，严重影响了用户体验。因此，有必要理解为什么网站变得很慢。如今，可以帮助你了解为什么我们的网站会慢下来。</strong></p><p><img                       lazyload                     alt="image"                     data-src="https://i04piccdn.sogoucdn.com/71e4070db5223598"                      alt="请输入图片描述"                ></p><h2 id="1、网页的大小"><a href="#1、网页的大小" class="headerlink" title="1、网页的大小"></a>1、网页的大小</h2><p>网页加载速度与网页大小直接相关。站点的代码文件越大，载入速度就越慢，网站打开速度就越慢，如果有太多的图片的话，网站就会变得很慢。</p><h2 id="2、网站服务器"><a href="#2、网站服务器" class="headerlink" title="2、网站服务器"></a>2、网站服务器</h2><p>服务器不稳定是影响网站开放速度的直接原因。由于服务器不稳定，网站的运行速度很慢。推荐站点管理员使用过您的服务器。虽然国外的服务器能让申请过程省心，但国外的主机比国内的要慢得多。</p><h2 id="3、网站的流量太大"><a href="#3、网站的流量太大" class="headerlink" title="3、网站的流量太大"></a>3、网站的流量太大</h2><p>一般来说，访问网站服务器是有一些限制的。随着越来越多的用户同时访问网站，网站会出现超载问题，导致网站崩溃。因此，当你在购买网站服务器时，你必须了解宽带的大小，并根据你网站页面的大小和访问量购买服务器空间，以免网站流量过大。</p><h2 id="4、优化网站代码"><a href="#4、优化网站代码" class="headerlink" title="4、优化网站代码"></a>4、优化网站代码</h2><p>大量的JS调用在站点代码中。如果网站中的JS调用过多，网站就会打开得太久，导致网站打开的速度变慢。站点管理员可以利用缓存机制对过于复杂的网站代码进行处理和传输，从而减少服务器数据的处理和传输，提高网站的开放速度。</p><h2 id="5、网速问题"><a href="#5、网速问题" class="headerlink" title="5、网速问题"></a>5、网速问题</h2><p>如果网站访问者上网速度很慢，网站的运行速度就会很慢。例如，如果我们站点的服务器是一台电信，联通的用户就会变慢。这就是网站有可能慢慢打开。从以上几个方面，你可以了解为什么网站开得慢。但愿今天提供的内容对您有帮助。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;在进行站点优化时，很多站长会发现我们的网站有时运行速度很快，有时运行速度很慢，严重影响了用户体验。因此，有必要理解为什么网站变得很慢。如今，可以帮助你了解为什么我们的网站会慢下来。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img  
+               </summary>
+      
+    
+    
+    
+    
+    <category term="优化" scheme="https://blog.alm5.cn/tags/%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单说明Windows10和Windows11有什么区别</title>
+    <link href="https://blog.alm5.cn/posts/4997df28.html"/>
+    <id>https://blog.alm5.cn/posts/4997df28.html</id>
+    <published>2021-07-03T09:56:00.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Windows11具有Windows10的全部功能和安全性，同时具有经重新设计而焕然一新的外观。它还自带一些新的工具、声音和应用。所有细节面面俱到。颜值、功能与安全性集于一体，带来全新的电脑体验。</strong></p><hr><p><strong>同时，Windows11还内置了安卓子系统（就像是Windows10内置Linux子系统），可以直接运行安卓应用。按微软工程师的说法Windows11内置的安卓子系统可以运行安卓应用，而相关的二进制文件则通过英特尔的桥技术进行运行。</strong></p><hr><p><strong>Windows11硬件要求支持TPM安全芯片，至少需要 TPM1.2版以上，兼容性检查显示系统需支持TPM2.0 版。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Windows11具有Windows10的全部功能和安全性，同时具有经重新设计而焕然一新的外观。它还自带一些新的工具、声音和应用。所有细节面面俱到。颜值、功能与安全性集于一体，带来全新的电脑体验。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;同</summary>
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>要不要免费帮助别人</title>
+    <link href="https://blog.alm5.cn/posts/7780c966.html"/>
+    <id>https://blog.alm5.cn/posts/7780c966.html</id>
+    <published>2021-07-03T09:49:00.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<p><img                       lazyload                     alt="image"                     data-src="https://jsd.15xd.cn/gh/linmu136/tulin/45004b33edfd0b32607e9370de88d0a9.png"                      alt="请输入图片描述"                ></p><h2 id="没事不要免费帮助别人。你如果免费帮助别人，那么最终会有两个结果"><a href="#没事不要免费帮助别人。你如果免费帮助别人，那么最终会有两个结果" class="headerlink" title="没事不要免费帮助别人。你如果免费帮助别人，那么最终会有两个结果:"></a>没事不要免费帮助别人。你如果免费帮助别人，那么最终会有两个结果:</h2><p>①当你停止免费援助的时候，那个人会恨你。</p><p>②你免费帮他，他在潜意识里会认为，你就是个没有本事的废物，不值钱，很贱。这不怪他，这是人的本性。</p><p>所以说，你如果认为自己的付出有价值，就要索取相应的报酬。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img  
+                     lazyload
+                     alt=&quot;image&quot;
+                     data-src=&quot;https://jsd.15xd.cn/gh/linmu136/tuli</summary>
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>几种使用谷歌搜索的方法</title>
+    <link href="https://blog.alm5.cn/posts/81484837.html"/>
+    <id>https://blog.alm5.cn/posts/81484837.html</id>
+    <published>2021-02-01T07:06:00.000Z</published>
+    <updated>2024-05-14T06:23:24.045Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>前言:目前因为谷歌被墙，所以在国内是无法直接访问谷歌搜索官网的，但是有的时候我们又不得不使用谷歌，这里分享几个可以正常使用谷歌搜索的方法。对您有帮助的话就来看看吧。</p></blockquote><ol><li>使用谷歌镜像站，第一步，打开百度，搜索谷歌镜像站，随便找一个进入，就可以正常使用谷歌了，不过这属于镜像站，但是使用他搜索一些东西还是挺好用的，就是有的时候会显示流量异常被拦截，如果被拦了，就换个镜像站即可。</li></ol><hr><p> 2.使用翻，墙，工具，这个也是比较常用的方法，不过目前法律规定了这方面的一些，所以一般不能自己搭来翻墙，不然会被请去喝茶，一般情况不建议使用这个方法，如果非要使用还是谨慎为好。</p><hr><p>3.使用香港服务器，可以买一台香港服务器，使用远程连接，连接上去，在里面是有谷歌，目前香港访问谷歌是可以正常访问的，服务器推荐买个小配置的就行，随便找一个不出名的商家，买便宜的机器就够。</p><hr><p>4.自己搭建镜像站，至于如何搭建可以从百度上查一下方法，有大佬分享过用cloudflare来搭建镜像站。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;前言:目前因为谷歌被墙，所以在国内是无法直接访问谷歌搜索官网的，但是有的时候我们又不得不使用谷歌，这里分享几个可以正常使用谷歌搜索的方法。对您有帮助的话就来看看吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;使用谷歌镜像站，第一步，打开</summary>
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+    <category term="谷歌" scheme="https://blog.alm5.cn/tags/%E8%B0%B7%E6%AD%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在线网页截图工具</title>
+    <link href="https://blog.alm5.cn/posts/2695d39.html"/>
+    <id>https://blog.alm5.cn/posts/2695d39.html</id>
+    <published>2021-02-01T06:59:00.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<p>一般情况，手机截图或者电脑截图总会有一些边框，然后还需要自己修剪，这里推荐一个网页在线截图工具，可以一键截图，并且支持api（有助于开发者使用）</p><h2 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h2><ol><li><p>支持内置边框</p></li><li><p>内置背景</p></li><li><p>支持自定义尺寸</p></li><li><p>可以选择长截图</p></li><li><p>可自定义设备（PC,平板,手机）</p></li><li><p>可自定义cookie可</p></li><li><p>自定义延迟</p></li></ol><p>更值得一说的是，它提供API服务，开发者朋友们有福啦！</p><p>可以利用api来写一些程序，例如:网站实时状态截图工具</p><p>工具地址:</p><p><a class="link"   href="https://www.screenshotmaster.com/" >https://www.screenshotmaster.com/<i class="fas fa-external-link-alt"></i></a></p><p>工具展示图<br><img                       lazyload                     alt="image"                     data-src="https://s3.ax1x.com/2021/02/01/yeqfit.png"                      alt="图片"                ></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;一般情况，手机截图或者电脑截图总会有一些边框，然后还需要自己修剪，这里推荐一个网页在线截图工具，可以一键截图，并且支持api（有助于开发者使用）&lt;/p&gt;
+&lt;h2 id=&quot;优点&quot;&gt;&lt;a href=&quot;#优点&quot; class=&quot;headerlink&quot; title=&quot;优点:&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>教你在Win10下怎么查看WIFI密码</title>
+    <link href="https://blog.alm5.cn/posts/71f1b8cc.html"/>
+    <id>https://blog.alm5.cn/posts/71f1b8cc.html</id>
+    <published>2021-01-30T03:28:00.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>在Win10下怎么查看WIFI密码呢，相信很多用户很早就连接了WIFI，久了之后就把WIFI密码给忘记了，其实大家不要急，在Win10下查看WIFI密码还是比较简单的，下面小编提供了两种方法，大家觉的哪个更方便就用哪个方法。</p></blockquote><h1 id="注：所能查看WIFI密码，必须之前已经连接上。"><a href="#注：所能查看WIFI密码，必须之前已经连接上。" class="headerlink" title="注：所能查看WIFI密码，必须之前已经连接上。"></a>注：所能查看WIFI密码，必须之前已经连接上。</h1><h2 id="方法一：系统设置查看WiFi密码"><a href="#方法一：系统设置查看WiFi密码" class="headerlink" title="方法一：系统设置查看WiFi密码"></a>方法一：系统设置查看WiFi密码</h2><blockquote><p>首先，电脑需要先连接WiFi网络。</p></blockquote><h3 id="１．接着，开启“设置”，在“网络和Internet”一栏，找到“更改适配器选项”，点开。除此以外，直接从Win10的搜索框中直接搜索打开也可以。"><a href="#１．接着，开启“设置”，在“网络和Internet”一栏，找到“更改适配器选项”，点开。除此以外，直接从Win10的搜索框中直接搜索打开也可以。" class="headerlink" title="１．接着，开启“设置”，在“网络和Internet”一栏，找到“更改适配器选项”，点开。除此以外，直接从Win10的搜索框中直接搜索打开也可以。"></a>１．接着，开启“设置”，在“网络和Internet”一栏，找到“更改适配器选项”，点开。除此以外，直接从Win10的搜索框中直接搜索打开也可以。</h3><h3 id="2、在网络连接页面，我们右键点击Wlan无线连接，开打状态。"><a href="#2、在网络连接页面，我们右键点击Wlan无线连接，开打状态。" class="headerlink" title="2、在网络连接页面，我们右键点击Wlan无线连接，开打状态。"></a>2、在网络连接页面，我们右键点击Wlan无线连接，开打状态。</h3><h3 id="3、接下来在WLAN状态下，再点击无线属性；"><a href="#3、接下来在WLAN状态下，再点击无线属性；" class="headerlink" title="3、接下来在WLAN状态下，再点击无线属性；"></a>3、接下来在WLAN状态下，再点击无线属性；</h3><h3 id="4、在“无线属性”的窗孔中，切换到“安全”的标签页，网络安全密码就是WIFI密码了，但是要勾选下面的显示字符才可以。"><a href="#4、在“无线属性”的窗孔中，切换到“安全”的标签页，网络安全密码就是WIFI密码了，但是要勾选下面的显示字符才可以。" class="headerlink" title="4、在“无线属性”的窗孔中，切换到“安全”的标签页，网络安全密码就是WIFI密码了，但是要勾选下面的显示字符才可以。"></a>4、在“无线属性”的窗孔中，切换到“安全”的标签页，网络安全密码就是WIFI密码了，但是要勾选下面的显示字符才可以。</h3><h2 id="方法二：通过命令提示符查看WiFi密码"><a href="#方法二：通过命令提示符查看WiFi密码" class="headerlink" title="方法二：通过命令提示符查看WiFi密码"></a>方法二：通过命令提示符查看WiFi密码</h2><h3 id="1、通过Win10搜索，找到CMD命令行。点击右键，选择用系统管理员权限来运行。"><a href="#1、通过Win10搜索，找到CMD命令行。点击右键，选择用系统管理员权限来运行。" class="headerlink" title="1、通过Win10搜索，找到CMD命令行。点击右键，选择用系统管理员权限来运行。"></a>1、通过Win10搜索，找到CMD命令行。点击右键，选择用系统管理员权限来运行。</h3><h3 id="2、接着在CMD中输入以下代码："><a href="#2、接着在CMD中输入以下代码：" class="headerlink" title="2、接着在CMD中输入以下代码："></a>2、接着在CMD中输入以下代码：</h3><blockquote><p>Netsh wlan show profile name&#x3D;”热点名字” key&#x3D;clear</p></blockquote><p>###其中，“热点名字”就填写你想要查看密码的WiFi热点的名称，例如笔者想要查看“staff”这个热点的密码，则输入：</p><blockquote><p>Netsh wlan show profile name&#x3D;”staff” key&#x3D;clear</p></blockquote><h3 id="3、然后按下回车，在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该WiFi热点对应的密码了。"><a href="#3、然后按下回车，在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该WiFi热点对应的密码了。" class="headerlink" title="3、然后按下回车，在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该WiFi热点对应的密码了。"></a>3、然后按下回车，在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该WiFi热点对应的密码了。</h3><p><strong>以上就是两种Win10系统下查看WIFI密码的方法了，还是要提醒的是一定要已经连接或是已经连接过和WIFI才可以查看密码哦。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;在Win10下怎么查看WIFI密码呢，相信很多用户很早就连接了WIFI，久了之后就把WIFI密码给忘记了，其实大家不要急，在Win10下查看WIFI密码还是比较简单的，下面小编提供了两种方法，大家觉的哪个更方便就用哪个方法。&lt;/p&gt;
+&lt;/block</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="Windows" scheme="https://blog.alm5.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>讲解网站中robots.txt文件到底是干什么的？</title>
+    <link href="https://blog.alm5.cn/posts/2330b865.html"/>
+    <id>https://blog.alm5.cn/posts/2330b865.html</id>
+    <published>2021-01-30T03:15:00.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、引导搜索引擎蜘蛛抓取指定栏目或内容；"><a href="#1、引导搜索引擎蜘蛛抓取指定栏目或内容；" class="headerlink" title="1、引导搜索引擎蜘蛛抓取指定栏目或内容；"></a>1、引导搜索引擎蜘蛛抓取指定栏目或内容；</h3><h3 id="2、网站改版或者URL重写优化时候屏蔽对搜索引擎不友好的链接；"><a href="#2、网站改版或者URL重写优化时候屏蔽对搜索引擎不友好的链接；" class="headerlink" title="2、网站改版或者URL重写优化时候屏蔽对搜索引擎不友好的链接；"></a>2、网站改版或者URL重写优化时候屏蔽对搜索引擎不友好的链接；</h3><h3 id="3、屏蔽死链接、404错误页面；"><a href="#3、屏蔽死链接、404错误页面；" class="headerlink" title="3、屏蔽死链接、404错误页面；"></a>3、屏蔽死链接、404错误页面；</h3><h3 id="4、屏蔽无内容、无价值页面；"><a href="#4、屏蔽无内容、无价值页面；" class="headerlink" title="4、屏蔽无内容、无价值页面；"></a>4、屏蔽无内容、无价值页面；</h3><h3 id="5、屏蔽重复页面，如评论页、搜索结果页；"><a href="#5、屏蔽重复页面，如评论页、搜索结果页；" class="headerlink" title="5、屏蔽重复页面，如评论页、搜索结果页；"></a>5、屏蔽重复页面，如评论页、搜索结果页；</h3><h3 id="6、屏蔽任何不想被收录的页面；"><a href="#6、屏蔽任何不想被收录的页面；" class="headerlink" title="6、屏蔽任何不想被收录的页面；"></a>6、屏蔽任何不想被收录的页面；</h3><h3 id="7、引导蜘蛛抓取网站地图；"><a href="#7、引导蜘蛛抓取网站地图；" class="headerlink" title="7、引导蜘蛛抓取网站地图；"></a>7、引导蜘蛛抓取网站地图；</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;1、引导搜索引擎蜘蛛抓取指定栏目或内容；&quot;&gt;&lt;a href=&quot;#1、引导搜索引擎蜘蛛抓取指定栏目或内容；&quot; class=&quot;headerlink&quot; title=&quot;1、引导搜索引擎蜘蛛抓取指定栏目或内容；&quot;&gt;&lt;/a&gt;1、引导搜索引擎蜘蛛抓取指定栏目或内容；&lt;/h3&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+    <category term="seo优化" scheme="https://blog.alm5.cn/tags/seo%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用smtp发送邮件时如何隐藏服务器ip</title>
+    <link href="https://blog.alm5.cn/posts/86119838.html"/>
+    <id>https://blog.alm5.cn/posts/86119838.html</id>
+    <published>2020-12-12T22:32:00.000Z</published>
+    <updated>2024-05-14T06:23:24.045Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用smtp发信时默认会在邮件的头部信息中显示真实的ip地址，将ip地址暴露在网络中是很危险的。所以我们在使用smtp发信时需要隐藏掉服务器的ip。下面简单记录下比较省时省力的几种方案</p><h2 id="1，使用阿里云企业邮箱发送邮件（推荐）"><a href="#1，使用阿里云企业邮箱发送邮件（推荐）" class="headerlink" title="1，使用阿里云企业邮箱发送邮件（推荐）"></a>1，使用阿里云企业邮箱发送邮件（推荐）</h2><p>使用阿里云企业邮箱发信时会自动隐藏服务器ip，另外可以通过企业邮箱升级实现和钉钉账号的绑定，从而可以直接在钉钉app中管理阿里云企业邮箱的邮件</p><p>使用万网的入口页可以免费开通5年阿里云企业邮箱，申请入口链接：</p><p><a class="link"   href="https://wanwang.aliyun.com/mail/freemail" >https://wanwang.aliyun.com/mail/freemail<i class="fas fa-external-link-alt"></i></a></p><h2 id="2，使用sendcloud的推送服务"><a href="#2，使用sendcloud的推送服务" class="headerlink" title="2，使用sendcloud的推送服务"></a>2，使用sendcloud的推送服务</h2><p>同样可以做到隐藏真实ip的功能，但是sendcloud的免费发信额度较少，仅10条&#x2F;天。</p><h2 id="3，使用阿里云邮件推送服务"><a href="#3，使用阿里云邮件推送服务" class="headerlink" title="3，使用阿里云邮件推送服务"></a>3，使用阿里云邮件推送服务</h2><p>每天有200封免费发信额度。可以购买资源包提高发信数量，目前90元可以买5w条额度</p><h2 id="4，自己搭建邮件中转服务器"><a href="#4，自己搭建邮件中转服务器" class="headerlink" title="4，自己搭建邮件中转服务器"></a>4，自己搭建邮件中转服务器</h2><p>另外你也可以自己搭建邮件中转服务器，这个就比较繁琐了而且需要额外服务器成本。如果对发送邮件的需求量不大，不推荐该方案</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;使用smtp发信时默认会在邮件的头部信息中显示真实的ip地址，将ip地址暴露在网络中是很危险的。所以我们在使用smtp发信时需要隐藏掉服务器的ip。下面简单记录下比较省时省力的几种方案&lt;/p&gt;
+&lt;h2 id=&quot;1，使用阿里云企业邮箱发送邮件（推荐）&quot;&gt;&lt;a href=&quot;#1</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="网站优化" scheme="https://blog.alm5.cn/tags/%E7%BD%91%E7%AB%99%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>免费主机，真的是免费吗？</title>
+    <link href="https://blog.alm5.cn/posts/fc70373e.html"/>
+    <id>https://blog.alm5.cn/posts/fc70373e.html</id>
+    <published>2020-08-04T06:47:15.000Z</published>
+    <updated>2024-05-14T06:23:24.045Z</updated>
+    
+    <content type="html"><![CDATA[<p>免费领一年虚拟主机？真的有这么好的事情吗？今天就来跟大家分享下如何才能够碰到这么好的事情。</p><p>小伙伴，首先咱们冷静下，好好想想，如果商家免费送虚拟主机用，而且时限很长，那他怎么赚钱呢？</p><p>   一、功能收费型<br>　　我在几年前用过国内的一个免费空间，100M空间大小，支持ASP，access数据库，html，提供二级域名，不过流量只给2G，用完了要么掏钱要么去他们论坛灌水赚积分换(当然挣积分也不容易)，另外想绑定顶级域名要掏钱，想开通FTP要掏钱，想支持。net得掏钱…<br>　　二、空间广告型<br>　　有的空间功能什么的看上去不错，不过要在你网站上挂他们的广告，网站你来建，内容你来写，广告费他们赚。变相上缴空间使用费。<br>　　三、虚假免费型<br>　　空间免费，不过使用起来极不稳定，在空间管理后台不停提醒你升级你的空间，直到你精神崩溃点击了升级按钮，他们收费的目的就算达到了。<br>　　四、强制收费型<br>　　免费空间使用的好好的，突然有一天不能访问，被告知网站想再次开通需交费云云，连数据下载的机会都不给，不付费之前的功夫算是白费了。这是免费空间商最恶毒的招术，遇到这样的无赖空间商只能自认倒霉。<br>　　免费空间的策略当然不限于上面几种，总之，天下真没有免费的午餐，所谓的免费也只是空间商们通用的营销策略，一旦你上了他们的船，就会想方设法让你掏钱或者达到其他的营销目的。而现在大大小小免费空间提供商也不少，选择空间也要付出时间成本，还要承担选择不当的风险。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;免费领一年虚拟主机？真的有这么好的事情吗？今天就来跟大家分享下如何才能够碰到这么好的事情。&lt;/p&gt;
+&lt;p&gt;小伙伴，首先咱们冷静下，好好想想，如果商家免费送虚拟主机用，而且时限很长，那他怎么赚钱呢？&lt;/p&gt;
+&lt;p&gt;   一、功能收费型&lt;br&gt;　　我在几年前用过国内的一个免费空</summary>
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>站内seo优化需要注意的7个小细节</title>
+    <link href="https://blog.alm5.cn/posts/862aa78e.html"/>
+    <id>https://blog.alm5.cn/posts/862aa78e.html</id>
+    <published>2020-07-24T18:22:00.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>安装文章列表插件并在首页放上列表链接，网上这样的插件不少，每更新一篇文章的时候，也会把文章的标题和链接加进去，唯一不好的是，这个插件在我们写一篇文章都要文件重建才能把最新的文章加进去，这个插件也相当于网站地图的功能，而且对用户体验也是友好的，浏览者找到自己需要的讯息.</p></li><li><p>安装sitemap插件并在首页放上列表链接，当我们每当写一篇博文，sitemap插件便会自动更新，把最新写的文章内容的链接加到这个sitemap地图中。这样对搜索引擎是友好的，利于蜘蛛的爬行和抓取.</p></li><li><p>做一个文章位置导航,每篇文章标题的上边(或下边),有“上一篇”、“下一篇”的链接,最好还有相关文章的调用插件,不但增加了相关性,增加了博客的内容聚合,从而增加总体权重,对于访问用户来说,可以便捷的访问与此文章相关的文章,提高了用户体验,而且对于网站优化来说,还可以增加网站的PV,我们知道,如果两个在SEO方面完全相同的网站,搜索引擎会把PV高的排在前面.</p></li><li><p>URL静态化,虽然现在搜索引擎已收录动态网页,但是静态网页,相比动态页面更易被收录,而且链接最好也是原创的.</p></li><li><p>文章分类,tags标签等文字链接都加到首页,这们增加了文章聚合,并且可以增加首页关键词密度,总体上可以提高网站的权重,对于用户体验也是友好的表现.</p></li><li><p>文章标题采用标题加网站名的形式,我们知道,很多网站默认的是一个很长的标题,把网站的标题、副标题都进去了,这样的标题不太符合搜索引擎的习惯,容易被判定为标题重复.特别是文章标题比较短的时候,所以我们要在模板文章里对标题进行修改,使用文章标题加网站标题的形式,而且这样做,可以提高网站的知名度,对网站的宣传是有些积极作用的.</p></li><li><p>首页底部次导航,除了在首页加上一个主导航外,还在首页的下边加一个次导航,链接指向博客首页,而且每篇文章都会有这个位置导航,这样增加了网站首页的内链,对网站优化有很大的帮助.</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装文章列表插件并在首页放上列表链接，网上这样的插件不少，每更新一篇文章的时候，也会把文章的标题和链接加进去，唯一不好的是，这个插件在我们写一篇文章都要文件重建才能把最新的文章加进去，这个插件也相当于网站地图的功能，而且对用户体验也是友好的，浏览者找到自己</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="seo优化" scheme="https://blog.alm5.cn/tags/seo%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SEO优化与静态URL的方法</title>
+    <link href="https://blog.alm5.cn/posts/a0c45b4c.html"/>
+    <id>https://blog.alm5.cn/posts/a0c45b4c.html</id>
+    <published>2020-07-24T18:04:00.000Z</published>
+    <updated>2024-05-14T06:23:24.045Z</updated>
+    
+    <content type="html"><![CDATA[<p>法说明开始：<br>网站的URL被分为动态和静态两种，动态的URL也分为三种，第一种是ASP，第二种是PHP，第三种是JSP。静态的URL却只有一种，那就是.html。所以，我们经常通过网址来查看该网站是动态还是静态的。</p><p>针对SEO优化来说，搜索引擎会经常对网站进行爬行。如果访问动态网站就需要通过访问服务器上的数据库，然后进行数据库的转移才能展现。而静态页面却不需要通过这样繁琐的操作。所以对于SEO优化来说，静态网站的优化往往更加有利于优化。本站就是静态页面。</p><p>网站SEO优化动态URL与静态URL</p><p>1、静态化的好处<br>由于在很长一段时间搜索引擎的技术有限，加上动态网站的负荷较大，所以从最开始的收录来说，搜索引擎都是针对静态网站而言的。这并不是说搜索引擎不会收录动态网站，只不过收录的动态网站因为点击之后访问速度以及其它原因，导致排名较静态网站而言更加靠后。有了这样的习惯后，越来越多SEO人员就记住了这样的规律。搜索引擎更加倾向于静态网站的URL收录。<br>静态优点：<br>    1、当用户访问网站的时候，因为是静态网站更方便用户记住，并且通过分享进行传播也更加方便搜索引擎的抓取。<br>    2、静态网站因为只是一个单独的静态页面，并不需要通过访问服务器上的数据库进行转义，只有十几KB的大小，所以静态网站的打开速度往往更快。<br>    3、静态网站并没有漏洞存在，一般来说漏洞的存在都是因为代码不够严谨造成的，而静态网站多是以HTML的形式展现，所以并不会出现漏洞。<br>动态URL实现静态URL的方法<br>    主流的开源系统除了在设计之初就实现了伪静态之外，其它常见的开源系统都属于动态网站。这种网站类型并不利于优化，所以，我们在做这种类型网站的时候，就需要通过一定技术来实现伪静态这种效果。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;法说明开始：&lt;br&gt;网站的URL被分为动态和静态两种，动态的URL也分为三种，第一种是ASP，第二种是PHP，第三种是JSP。静态的URL却只有一种，那就是.html。所以，我们经常通过网址来查看该网站是动态还是静态的。&lt;/p&gt;
+&lt;p&gt;针对SEO优化来说，搜索引擎会经常对网</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>联通解除流量封顶服务1年</title>
+    <link href="https://blog.alm5.cn/posts/87cc57e0.html"/>
+    <id>https://blog.alm5.cn/posts/87cc57e0.html</id>
+    <published>2020-05-19T08:32:04.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<p><img                       lazyload                     alt="image"                     data-src="https://icon.qiantucdn.com/20200520/062f506006433a98d7de4d47a65b472e2"                      alt="请输入图片描述"                ><br>查任意联通手机号流量是否封顶以及解除流量封顶服务1年或永久。</p><p>联通用户现在解除流量封顶了，估计很多人都不知道把，我也是才知道，网上一查 居然出来2年多了。<br>参与方法：<br>打开联通手厅APP顶部搜【流量封顶】进入选择当月 或 12个月有效。有的用户选不了12个月。<br>PS：有些用户会出现永久，不显示有效时间</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img  
+                     lazyload
+                     alt=&quot;image&quot;
+                     data-src=&quot;https://icon.qiantucdn.com/20200520/</summary>
+      
+    
+    
+    
+    <category term="七杂八杂" scheme="https://blog.alm5.cn/categories/%E4%B8%83%E6%9D%82%E5%85%AB%E6%9D%82/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>腾讯管家域名报毒红名申诉地址集合</title>
+    <link href="https://blog.alm5.cn/posts/56bf6fe7.html"/>
+    <id>https://blog.alm5.cn/posts/56bf6fe7.html</id>
+    <published>2020-05-14T16:14:50.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<p><img                       lazyload                     alt="image"                     data-src="https://s1.ax1x.com/2020/05/15/YrpdzV.png"                      alt="请输入图片描述"                ><br>安全联盟：<a class="link"   href="https://appeal.anquan.org/" >https://appeal.anquan.org/<i class="fas fa-external-link-alt"></i></a></p><p>微信地址：<a class="link"   href="https://txwz.qq.com/wechat/urlcomplain?src=2&code=0210DkAi04qkkm1ZpZwi06mjAi00DkA5&state=STATE" >https://txwz.qq.com/wechat/urlcomplain?src=2&amp;code=0210DkAi04qkkm1ZpZwi06mjAi00DkA5&amp;state=STATE<i class="fas fa-external-link-alt"></i></a></p><p>管家地址：<a class="link"   href="https://guanjia.qq.com/online_server/complain_url.html" >https://guanjia.qq.com/online_server/complain_url.html<i class="fas fa-external-link-alt"></i></a></p><p>腾讯安全：<a class="link"   href="https://urlsec.qq.com/complain.html" >https://urlsec.qq.com/complain.html<i class="fas fa-external-link-alt"></i></a></p><p>腾讯人工：800090241</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img  
+                     lazyload
+                     alt=&quot;image&quot;
+                     data-src=&quot;https://s1.ax1x.com/2020/05/15/Yrpdz</summary>
+      
+    
+    
+    
+    <category term="个人经验" scheme="https://blog.alm5.cn/categories/%E4%B8%AA%E4%BA%BA%E7%BB%8F%E9%AA%8C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>查出你的微信好友是否删了你</title>
+    <link href="https://blog.alm5.cn/posts/44a1bc6e.html"/>
+    <id>https://blog.alm5.cn/posts/44a1bc6e.html</id>
+    <published>2020-05-13T15:55:04.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<p>注意：该方法安卓、苹果均适用<br>其实我们通过建群就可以检测<br>话不多说，下面直接上详细教程！<br><img                       lazyload                     alt="image"                     data-src="https://s1.ax1x.com/2020/05/14/YwqcTO.png"                      alt="请输入图片描述"                ><br>详细操作步骤<br>Step1：<br>进入微信主界面，然后点击微信页面右上角的号，选择「发起群聊」<br>Step2：<br>点选你想测试的微信好友，然后点选右上角的「完成」即可发起群聊</p><p>Step3：<br>这个时候，你只需要回到微信主界面，进入你刚创建的这个群里，你就可以看到「加群失败的群员名单」<br>其中以「蓝色字体显示」的好友，也就是已经把你删掉的好友了。建议截个图，待会慢慢删！<br>注意：这个时候千万不要在群里发任何消息！一旦你发了消息，那么这个群就真的成立，被对方发现！<br>验证完后……<br>Step4：<br>在群聊界面，点击左上角<br>，上划至底部，点击「删除并退出」，悄无声息的离开这个群！<br>突然想起「徐志摩的诗」，感觉好形象：<br>“轻轻的我走了，正如我轻轻地来，挥一挥衣袖，不再走一片云彩。”<br>不皮了，那么现在你就可以删掉那些「提示你需要验证的人」了。<br>重点来了……<br>如果群聊里有下面这样的提示——XX拒绝加入群聊<br>那我只能抱歉告诉你：对方已经把你拉进黑名单了！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;注意：该方法安卓、苹果均适用&lt;br&gt;其实我们通过建群就可以检测&lt;br&gt;话不多说，下面直接上详细教程！&lt;br&gt;&lt;img  
+                     lazyload
+                     alt=&quot;image&quot;
+             </summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>QQ免费注册9位QQ靓号</title>
+    <link href="https://blog.alm5.cn/posts/24e7a18f.html"/>
+    <id>https://blog.alm5.cn/posts/24e7a18f.html</id>
+    <published>2020-05-09T20:34:54.000Z</published>
+    <updated>2024-05-14T06:23:24.045Z</updated>
+    
+    <content type="html"><![CDATA[<p><img                       lazyload                     alt="image"                     data-src="http://p2.so.qhimgs1.com/t026444506b50a5516e.jpg"                      alt="请输入图片描述"                ><br>激活规则：获取的“靓号”，登录QQ手机版（ios或安卓平台）即可自动激活，激活后方可使用其他产品。</p><ol start="2"><li>回收规则：</li></ol><p>（1）免费注册获取的“靓号”，需在一周内完成激活，否则系统将自动回收。</p><p>（2）获取的“靓号”遵循现有的QQ帐号回收规则。</p><p>注册地址：<a class="link"   href="https://ssl.zc.qq.com/v3/index-chs.html?type=3" >https://ssl.zc.qq.com/v3/index-chs.html?type=3<i class="fas fa-external-link-alt"></i></a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img  
+                     lazyload
+                     alt=&quot;image&quot;
+                     data-src=&quot;http://p2.so.qhimgs1.com/t026444506b</summary>
+      
+    
+    
+    
+    <category term="最新线报" scheme="https://blog.alm5.cn/categories/%E6%9C%80%E6%96%B0%E7%BA%BF%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>替换谷歌cdn实现外国访问</title>
+    <link href="https://blog.alm5.cn/posts/d91f67f2.html"/>
+    <id>https://blog.alm5.cn/posts/d91f67f2.html</id>
+    <published>2020-05-09T20:29:33.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<p>大家平时上网查资料的时候会发现，stackoverflow等国外网站打开都特别慢，而有些网站的 reCaptcha 验证码则根本显示不出来。这是因为这些网站使用的一些资源托管在 Google CDN 上，而后者在中国大陆是无法访问的。对此，国内一些大学、厂商已经提供了相应的国内资源镜像，只需要我们将这些资源 URL 重定向至国内镜像地址即可，下面，就以火狐浏览器 Firefox 为例，教大家如何通过使用 Gooreplacer 插件来实现这样的功能：</p><p>（1）安装 Firefox , 并前往 gooreplacer安装插件；</p><p>（2）单击浏览器右上角如下图标，打开 gooreplacer 设置页面：<br>（3）在设置页面中，勾选【重定向】，单击【新增】按钮： </p><p>（5）依此类推，对如下网址也依次进行设置：<br>ajax.googleapis.com          &#x3D;&#x3D;&#x3D;&gt; ajax.lug.ustc.edu.cn<br><a class="link"   href="http://www.google.com/recaptcha" >www.google.com/recaptcha<i class="fas fa-external-link-alt"></i></a>     &#x3D;&#x3D;&#x3D;&gt; recaptcha.net&#x2F;recaptcha<br>themes.googleusercontent.com &#x3D;&#x3D;&#x3D;&gt; google-themes.lug.ustc.edu.cn</p><p>（7）也可以【导入】我设置好的配置文件（以下代码另存为 gooreplacer.gson 后导入）：<br>{<br>  “createBy”: “<a class="link"   href="http://liujiacai.net/gooreplacer/" >http://liujiacai.net/gooreplacer/<i class="fas fa-external-link-alt"></i></a>“,<br>  “version”: “3.11.0”,<br>  “createAt”: “2020&#x2F;2&#x2F;26 下午7:10:53”,<br>  “redirect-rules”: [<br>    {<br>      “src”: “<a class="link"   href="http://www.google.com/recaptcha" >www.google.com/recaptcha<i class="fas fa-external-link-alt"></i></a>“,<br>      “kind”: “wildcard”,<br>      “dst”: “recaptcha.net&#x2F;recaptcha”,<br>      “enable”: true<br>    },<br>    {<br>      “src”: “ajax.googleapis.com”,<br>      “kind”: “wildcard”,<br>      “dst”: “ajax.lug.ustc.edu.cn”,<br>      “enable”: true<br>    },<br>    {<br>      “src”: “themes.googleusercontent.com”,<br>      “kind”: “wildcard”,<br>      “dst”: “google-themes.lug.ustc.edu.cn”,<br>      “enable”: true<br>    }<br>  ],<br>  “cancel-rules”: [],<br>  “request-headers”: [],<br>  “response-headers”: []<br>}<br><img                       lazyload                     alt="image"                     data-src="http://p1.so.qhimgs1.com/t02e2db83201a6189e1.jpg"                      alt="请输入图片描述"                ><br><img                       lazyload                     alt="image"                     data-src="http://p0.so.qhimgs1.com/t02e2db83201a6189e1.jpg"                      alt="请输入图片描述"                ></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;大家平时上网查资料的时候会发现，stackoverflow等国外网站打开都特别慢，而有些网站的 reCaptcha 验证码则根本显示不出来。这是因为这些网站使用的一些资源托管在 Google CDN 上，而后者在中国大陆是无法访问的。对此，国内一些大学、厂商已经提供了相应的</summary>
+      
+    
+    
+    
+    <category term="技术分享" scheme="https://blog.alm5.cn/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>查询自己名下有几个微信号</title>
+    <link href="https://blog.alm5.cn/posts/7d6891e.html"/>
+    <id>https://blog.alm5.cn/posts/7d6891e.html</id>
+    <published>2020-05-08T16:45:00.000Z</published>
+    <updated>2024-05-14T06:23:24.049Z</updated>
+    
+    <content type="html"><![CDATA[<p>现在是可以通过微信帮助中心直接查看名下微信账户<br>新增绑卡、注册账户提示身份证注册超限 输入信息验证后查询名下账户并将账户清除到5个以下 即可继续注册<br>也可以查询下自己的身份证信息有没有泄露被别人注册了微信 多余自己没用的可以直接清除掉<br>打开微信-我-设置-通用-辅助功能-微信支付-帮助中心-实名问题-查询名下账户<br><img                       lazyload                     alt="image"                     data-src="https://www.itfd.cn/content/uploadfile/202005/799b1588894104.jpg"                      alt="请输入图片描述"                ><br>输入自己身份证和姓名 人脸识别后可以查看到名下微信号<br>发现不是自己在用的微信 直接清除掉 以免造成不必要损失<br><img                       lazyload                     alt="image"                     data-src="https://www.itfd.cn/content/uploadfile/202005/d0091588894105.jpg"                      alt="林木"                ></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;现在是可以通过微信帮助中心直接查看名下微信账户&lt;br&gt;新增绑卡、注册账户提示身份证注册超限 输入信息验证后查询名下账户并将账户清除到5个以下 即可继续注册&lt;br&gt;也可以查询下自己的身份证信息有没有泄露被别人注册了微信 多余自己没用的可以直接清除掉&lt;br&gt;打开微信-我-设置-</summary>
+      
+    
+    
+    
+    <category term="最新线报" scheme="https://blog.alm5.cn/categories/%E6%9C%80%E6%96%B0%E7%BA%BF%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+</feed>
